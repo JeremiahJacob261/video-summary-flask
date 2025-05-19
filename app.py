@@ -123,9 +123,9 @@ class VideoSummarizer:
             # Adjust based on actual API response structure
             # If data is a list and contains dicts with 'answer' or similar:
             if isinstance(data, list) and data:
-                summary_text = data[0].get("answer", "Summary not found in response.") # Example access
+                summary_text = data[0].get("response", "Summary not found in response.") # Example access
             elif isinstance(data, dict):
-                 summary_text = data.get("answer", data.get("summary", "Summary not found in response.")) # More general access
+                 summary_text = data.get("response", data.get("summary", "Summary not found in response.")) # More general access
             else:
                 summary_text = "Could not parse summary from API response."
             
