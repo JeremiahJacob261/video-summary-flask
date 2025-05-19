@@ -267,5 +267,6 @@ if __name__ == '__main__':
     import logging
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
     # For more detailed debugging, you can set level=logging.DEBUG
-    app.run(debug=True) # debug=True is useful for development, but disable for production
-    app.run(host='0.0.0.0', port=5000) # Makes it accessible on the network
+    # app.run(debug=True) # debug=True is useful for development, but disable for production
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port) # Makes it accessible on the network
