@@ -98,7 +98,7 @@ class VideoSummarizer:
                 app.logger.warning("Transcript is empty, returning empty summary.")
                 return ""
 
-            payload = {"queries": transcript} # API expects a list of queries
+            payload = {"queries": "Very concise, summarize the text. Just short summarize, no adding of here is a blablabla-> " + transcript} # API expects a list of queries
             headers = {"Content-Type": "application/json"}
 
             response = requests.post(
