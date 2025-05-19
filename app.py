@@ -1,6 +1,6 @@
 # app.py
 import os
-import moviepy.editor as mp
+import moviepy as mp
 import requests
 import json
 from datetime import datetime
@@ -98,7 +98,7 @@ class VideoSummarizer:
                 app.logger.warning("Transcript is empty, returning empty summary.")
                 return ""
 
-            payload = {"queries": [transcript]} # API expects a list of queries
+            payload = {"queries": transcript} # API expects a list of queries
             headers = {"Content-Type": "application/json"}
 
             response = requests.post(
@@ -267,5 +267,5 @@ if __name__ == '__main__':
     import logging
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
     # For more detailed debugging, you can set level=logging.DEBUG
-    # app.run(debug=True) # debug=True is useful for development, but disable for production
+    app.run(debug=True) # debug=True is useful for development, but disable for production
     app.run(host='0.0.0.0', port=5000) # Makes it accessible on the network
